@@ -9,7 +9,6 @@ class OrderItem extends StatefulWidget {
 
   OrderItem(this.orderdata);
 
-
   @override
   State<OrderItem> createState() => _OrderItemState();
 }
@@ -19,7 +18,7 @@ class _OrderItemState extends State<OrderItem> {
 
   @override
   Widget build(BuildContext context) {
-    List<CartItem>cartItems = widget.orderdata.cartItem as List<CartItem>;
+    List<CartItem> cartItems = widget.orderdata.cartItem as List<CartItem>;
     return Card(
       margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       child: Column(
@@ -37,19 +36,18 @@ class _OrderItemState extends State<OrderItem> {
               },
             ),
           ),
-          if(_isExpand) Container(
-            height: min(cartItems.length * 10.0 + 80, 100),
-            padding: EdgeInsets.all(8),
-            child: ListView(
-              children:
-                cartItems.map((e) => Row(
-                  children: [
-                    Text(e.title!)
-                  ],
-                )).toList(),
-
-            ),
-          )
+          if (_isExpand)
+            Container(
+              height: min(cartItems.length * 10.0 + 80, 100),
+              padding: EdgeInsets.all(8),
+              child: ListView(
+                children: cartItems
+                    .map((e) => Row(
+                          children: [Text(e.title!)],
+                        ))
+                    .toList(),
+              ),
+            )
         ],
       ),
     );

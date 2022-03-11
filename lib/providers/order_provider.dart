@@ -9,7 +9,7 @@ class Order {
   Order.name(this.id, this.totalAmount, this.date, this.cartItem);
 }
 
-class OrderProvider with ChangeNotifier{
+class OrderProvider with ChangeNotifier {
   List<Order> _items = [];
 
   List<Order> get items {

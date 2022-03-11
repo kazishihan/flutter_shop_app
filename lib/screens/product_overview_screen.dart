@@ -27,7 +27,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
                 builder: (ct, value, _) =>
                     Text(value.getCartCount().toString())),
             child: GestureDetector(
-              onTap: (){
+              onTap: () {
                 Navigator.of(context).pushNamed(CartScreen.routeName);
               },
               child: Icon(Icons.shopping_cart),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/screens/order_screen.dart';
+import 'package:shop_app/screens/user_product_screen.dart';
 
 class MainDraware extends StatelessWidget {
   const MainDraware({Key? key}) : super(key: key);
@@ -37,6 +38,13 @@ class MainDraware extends StatelessWidget {
             title: Text('Orders'),
             onTap: () {
               Navigator.of(context).pushNamed(OrderScreen.routeName);
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.house_siding_rounded),
+            title: const Text('My Products'),
+            onTap: () {
+              Navigator.of(context).pushNamed(UserProductScreen.routeName);
             },
           ),
         ],

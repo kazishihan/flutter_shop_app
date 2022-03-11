@@ -10,9 +10,9 @@ class ProductGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dataProvider= Provider.of<ProductsProvider>(context,listen: true);
+    final dataProvider = Provider.of<ProductsProvider>(context, listen: true);
     final products = isFavShow ? dataProvider.favItem : dataProvider.items;
-   // final products =  dataProvider.items;
+    // final products =  dataProvider.items;
     //final favProduct = Provider.of<ProductsProvider>(context, listen: false).favItem;
     return Container(
       margin: EdgeInsets.all(10),
