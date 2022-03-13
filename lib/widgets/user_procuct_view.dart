@@ -12,17 +12,11 @@ class UserProcuctView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scaffold = Scaffold.of(context);
     return ListTile(
       title: Text(title),
-      leading: FittedBox(
-        fit: BoxFit.contain,
-        child: CircleAvatar(
-          backgroundColor: Colors.white,
-          child: Image.network(
-            imageurl,
-            fit: BoxFit.fill,
-          ),
-        ),
+      leading: CircleAvatar(
+        backgroundImage: NetworkImage(imageurl),
       ),
       trailing: Container(
         width: 100,
@@ -36,8 +30,17 @@ class UserProcuctView extends StatelessWidget {
               icon: Icon(Icons.edit),
             ),
             IconButton(
-              onPressed: () {
-                Provider.of<ProductsProvider>(context).deleteProduct(productId);
+              onPressed: () async {
+                try {
+                  await Provider.of<ProductsProvider>(context, listen: false)
+                      .deleteProduct(productId);
+                } catch (error) {
+                  scaffold.showSnackBar(
+                    const SnackBar(
+                      content: Text('Delete Failed'),
+                    ),
+                  );
+                }
               },
               icon: Icon(Icons.delete),
             ),
