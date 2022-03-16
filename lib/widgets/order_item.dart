@@ -32,6 +32,7 @@ class _OrderItemState extends State<OrderItem> {
               onPressed: () {
                 setState(() {
                   _isExpand = !_isExpand;
+
                 });
               },
             ),
