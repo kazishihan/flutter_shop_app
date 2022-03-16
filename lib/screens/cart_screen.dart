@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/providers/cart.dart';
-import 'package:shop_app/providers/order_provider.dart';
+import 'package:shop_app/widgets/order_now_elevated_button.dart';
 import 'package:shop_app/widgets/cart_item.dart' as cartWidg;
 
 class CartScreen extends StatelessWidget {
@@ -38,17 +38,7 @@ class CartScreen extends StatelessWidget {
                   SizedBox(
                     width: 10,
                   ),
-                  ElevatedButton(
-                      onPressed: () {
-                        Provider.of<OrderProvider>(context, listen: false)
-                            .addOrder(
-                          cartItem.items.values.toList(),
-                          cartItem.totalAmount,
-                          DateTime.now(),
-                        );
-                        cartItem.clear();
-                      },
-                      child: Text('Order Now')),
+                  orderNowElevatedButton(cartItem: cartItem),
                 ],
               ),
             ),
